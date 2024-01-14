@@ -24,7 +24,7 @@ function startEngine( players, veh )
 			elseif ( getElementData( veh, 'enginebroke' ) or 0 ) == 1 then
 				status = 'enginebroke'
 			elseif ( getElementData( veh, "fuel") or 0 ) == 0 then
-				status = 'nofuel'
+				status = 'ok' --'nofuel'
 			elseif getElementData(veh, "hotwired") then
 				status = 'hotwired'
 			else
@@ -51,15 +51,17 @@ function startEngine( players, veh )
 			end
 
 			-- inactivity scanner stuff
+			--[[
 			local vid = getElementData( veh, 'dbid' )
 			if vid > 0 then
 				exports.anticheat:setEld( veh, "lastused", exports.datetime:now(), 'all' )
 				dbExec( exports.mysql:getConn('mta'), "UPDATE vehicles SET lastUsed=NOW() WHERE id=? ", vid )
 			end
+			]]
 
 			-- logs
-			exports.vehicle_manager:addVehicleLogs( vid , "Started engine", client )
-			exports.logs:dbLog( client, 31, { veh, client } , "STARTED ENGINE" )
+			--exports.vehicle_manager:addVehicleLogs( vid , "Started engine", client )
+			--exports.logs:dbLog( client, 31, { veh, client } , "STARTED ENGINE" )
 		elseif status == 'hotwired' then 
 			local vehID = getElementData(veh, "dbid")
 			toggleControl( client, 'accelerate', true )
@@ -69,17 +71,19 @@ function startEngine( players, veh )
 			exports.anticheat:setEld( veh, "vehicle:radio", tonumber(getElementData(veh, "vehicle:radio:old")), 'all' )
 
 			-- inactivity scanner stuff
+			--[[
 			local vid = getElementData( veh, 'dbid' )
 			if vid > 0 then
 				exports.anticheat:setEld( veh, "lastused", exports.datetime:now(), 'all' )
 				dbExec( exports.mysql:getConn('mta'), "UPDATE vehicles SET lastUsed=NOW() WHERE id=? ", vid )
 			end
+			]]
 
 			triggerEvent('sendAme', client, "reaches down sparking a few cables.")
 
 			-- logs
-			exports.vehicle_manager:addVehicleLogs( vid , "Started engine via hotwire method due to it already being set hotwirable by an admin.", client )
-			exports.logs:dbLog( client, 31, { veh, client } , "STARTED ENGINE THAT WAS ALREADY HOTWIRED" )
+			--exports.vehicle_manager:addVehicleLogs( vid , "Started engine via hotwire method due to it already being set hotwirable by an admin.", client )
+			--exports.logs:dbLog( client, 31, { veh, client } , "STARTED ENGINE THAT WAS ALREADY HOTWIRED" )
 		else
 			-- play starting sound while we're doing it.
 			for i, player in pairs( players ) do

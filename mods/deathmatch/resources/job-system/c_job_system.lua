@@ -62,6 +62,8 @@ end
 addEvent("onEmployment", true)
 addEventHandler("onEmployment", getRootElement(), showEmploymentWindow)
 
+
+
 function acceptJob(button, state)
 	if (button=="left") then
 		local row, col = guiGridListGetSelectedItem(jobList)

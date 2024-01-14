@@ -13,7 +13,7 @@ setElementData(fishermanJohn, "name", "Fisherman John")
 setElementFrozen(fishermanJohn, true)
 
 function startFishingSession()
-    if exports['item-system']:hasItem(localPlayer, 49, 1) then
+    --if exports['item-system']:hasItem(localPlayer, 49, 1) then
         if getElementData(localPlayer, "isfishing") then
             outputChatBox("You're already fishing...", 255, 0, 0)
         else 
@@ -43,15 +43,15 @@ function startFishingSession()
                             end, 
                         math.random(8000, 10000), 1)
                     end
-                , math.random(180000, 600000), 1)  
+                , math.random(2000, 4000), 1)  
                 outputChatBox("You can stop fishing at any time by typing /stopfishing.", 0, 255, 0)
             else 
                 outputChatBox("You cannot fish here.", 255, 0, 0)
             end
         end
-    else
-        outputChatBox("You do not have a fishing rod.", 255, 0, 0)
-    end
+   -- else
+    --    outputChatBox("You do not have a fishing rod.", 255, 0, 0)
+    --end
 end
 
 function endFishingSession()

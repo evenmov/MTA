@@ -35,6 +35,8 @@ function startStep11(retest)
 		table.insert(quests, row )
 	end
 	exports.mysql:free_result(mQuery)
+
+	iprint("quests",quests)
 	
 	while #selectedQuests[client] < 6 do
 		local ran = math.random(1, #quests)

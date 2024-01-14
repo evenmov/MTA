@@ -46,7 +46,7 @@ end
 
 function startBusJob()
 	local job = getElementData(getLocalPlayer(), "job")
-	if (job == 3) then
+	if (true) then
 		if blip then
 			destroyElement(blip)
 			blip = nil
