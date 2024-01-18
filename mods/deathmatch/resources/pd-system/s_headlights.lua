@@ -41,6 +41,8 @@ local function getFactionType(vehicle)
 end
 
 local function canUseStrobes(vehicle, data)
+	return 2
+	--[[
 	if data then
 		if data[2] then
 			if exports.global:hasItem(vehicle, data[2], "Law") then
@@ -57,6 +59,7 @@ local function canUseStrobes(vehicle, data)
 		end
 	end
 	return false
+	]]
 end
 
 function toggleFlasherState()

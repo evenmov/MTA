@@ -22,6 +22,7 @@ end
 addEventHandler("onClientResourceStart", getResourceRootElement(), bindKeys)
 
 function toggleSirens(_, state)
+    --iprint("toggleSirens",_, state)
    local theVehicle = getPedOccupiedVehicle(getLocalPlayer())
    if (theVehicle) then
         local occupants = getVehicleOccupants(theVehicle)

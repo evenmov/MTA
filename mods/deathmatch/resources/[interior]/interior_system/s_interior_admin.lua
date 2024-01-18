@@ -8,7 +8,7 @@
 ]]
 
 function getNearbyInteriors(thePlayer, commandName)
-	if (exports.integration:isPlayerTrialAdmin(thePlayer) or exports.integration:isPlayerMappingTeamMember(thePlayer)) then
+	--if (exports.integration:isPlayerTrialAdmin(thePlayer) or exports.integration:isPlayerMappingTeamMember(thePlayer)) then
 		local posX, posY, posZ = getElementPosition(thePlayer)
 		local dimension = getElementDimension(thePlayer)
 		outputChatBox("Nearby Interiors:", thePlayer, 255, 126, 0)
@@ -34,7 +34,7 @@ function getNearbyInteriors(thePlayer, commandName)
 		if (count==0) then
 			outputChatBox("   None.", thePlayer, 255, 126, 0)
 		end
-	end
+	--end
 end
 addCommandHandler("nearbyinteriors", getNearbyInteriors, false, false)
 addCommandHandler("nearbyints", getNearbyInteriors, false, false)
@@ -77,7 +77,7 @@ addCommandHandler("delnearbyinteriors", delNearbyInteriors, false, false)
 addCommandHandler("delnearbyints", delNearbyInteriors, false, false)
 
 function gotoHouse( thePlayer, commandName, houseID, target )
-	if exports.integration:isPlayerTrialAdmin( thePlayer ) or exports.integration:isPlayerSupporter(thePlayer) or exports.integration:isPlayerMappingTeamMember(thePlayer) then
+	--if exports.integration:isPlayerTrialAdmin( thePlayer ) or exports.integration:isPlayerSupporter(thePlayer) or exports.integration:isPlayerMappingTeamMember(thePlayer) then
 		local houseID = tonumber( houseID )
 		if not houseID then
 			outputChatBox( "SYNTAX: /" .. commandName .. " [House/Biz ID] (Player)", thePlayer, 255, 194, 14 )
@@ -114,7 +114,7 @@ function gotoHouse( thePlayer, commandName, houseID, target )
 				return false
 			end
 		end
-	end
+	--end
 end
 addCommandHandler( "gotohouse", gotoHouse )
 addCommandHandler( "gotoint", gotoHouse )

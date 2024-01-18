@@ -18,7 +18,9 @@ addEventHandler("onVehicleRespawn", getRootElement(), vehicleBlown)
 ]]
 
 function setSirenState(type)
-    if exports.global:hasItem(source, 85) or exports.global:hasItem(source, 261) or exports.global:hasItem(source, 269) then -- sirens
+	--type = "yelp"
+	iprint("setSirenState",type)
+    --if exports.global:hasItem(source, 85) or exports.global:hasItem(source, 261) or exports.global:hasItem(source, 269) then -- sirens
     	if type == "horn" then
             exports.anticheat:changeProtectedElementDataEx(source, "lspd:siren", 4)
             return
@@ -37,7 +39,7 @@ function setSirenState(type)
     	end
         exports.anticheat:changeProtectedElementDataEx(source, "lspd:siren", false)
         setVehicleSirensOn ( source , false )
-    end
+    --end
 end
 addEvent( "lspd:setSirenState", true )
 addEventHandler( "lspd:setSirenState", getRootElement(), setSirenState )

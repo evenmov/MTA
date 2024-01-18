@@ -54,8 +54,8 @@ function lotteryDraw()
 
 	updateLotteryJackpot(0)
 end
---addEventHandler("onResourceStart", getResourceRootElement(), lotteryDraw)
-setTimer(lotteryDraw, 86400000, 0) -- Lottery draw every 24 hours
+addEventHandler("onResourceStart", getResourceRootElement(), lotteryDraw)
+--setTimer(lotteryDraw, 86400, 0) -- Lottery draw every 24 hours -1000
 --setTimer(lotteryDraw, 3600000, 0) -- Lottery draw every hour
 
 function lotteryCheckJackpot(thePlayer, commandName)
